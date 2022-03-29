@@ -21,6 +21,8 @@ export function useApplicationData() {
     });
   }, []);
 
+ 
+
   const bookInterview = (id, interview) => {
     const appointment = {
       ...state.appointments[id],
@@ -41,7 +43,7 @@ export function useApplicationData() {
       .then((response) => {
       })
   }
-  
+
   return {
     state, 
     setDay,
