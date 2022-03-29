@@ -32,7 +32,6 @@ export default function Application(props) {
       .then((response) => {
         setState({...state, appointments});
       })
-      
   }
 
   function cancelInterview(id) {
