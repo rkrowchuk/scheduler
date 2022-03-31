@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
 import { useApplicationData } from "hooks/useApplicationData";
@@ -13,7 +12,7 @@ export default function Application(props) {
     state,
     setDay,
     bookInterview,
-    cancelInterview
+    cancelInterview,
   } = useApplicationData();
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
@@ -29,7 +28,7 @@ export default function Application(props) {
       />
       <hr className="sidebar__separator sidebar--centered" />
       <nav className="sidebar__menu">
-        <DayList days={state.days} value={state.day} onChange={setDay}/>
+        <DayList days={state.days} value={state.day} onChange={setDay} />
       </nav>
       <img
         className="sidebar__lhl sidebar--centered"

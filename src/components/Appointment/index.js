@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import "components/Appointment/styles.scss";
 import Header from "./Header";
 import Show from "./Show";
@@ -7,7 +7,6 @@ import Form from "./Form";
 import Status from "./Status";
 import Confirm from "./Confirm";
 import Error from "./Error";
-import { getInterviewersForDay } from "helpers/selectors";
 import { useVisualMode } from "hooks/useVisualMode";
 
 
