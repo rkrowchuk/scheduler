@@ -36,10 +36,8 @@ export function useApplicationData() {
     if (oldInterview === null && newInterview !== null) {
       update = -1;
     }
-    console.log(update);
-    const dayObj = state.days.find(d1 => d1.name === state.day);
     const newDays = state.days.map(day => {
-      if (dayObj) {
+      if (day.appointments.includes(id)) {
         return {...day, spots: day.spots + update}
       }
       return day;
