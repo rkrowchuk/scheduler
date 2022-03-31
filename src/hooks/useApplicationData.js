@@ -30,7 +30,7 @@ export function useApplicationData() {
     if (oldInterview !== null && newInterview !== null) {
       update = 0;
     }
-    if (oldInterview !== null && newInterview !== null && dlt) {
+    if (oldInterview !== null && newInterview === null && dlt) {
       update = 1;
     }
     if (oldInterview === null && newInterview !== null) {
@@ -62,10 +62,18 @@ export function useApplicationData() {
   }
 
   const cancelInterview = (id) => {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
    return axios.delete(`/api/appointments/${id}`)
       .then(() => {
-        const days = updateSpots(state, state.appointments, id, true);
-        setState({...state, days});
+        const days = updateSpots(state, appointments, id, true);
+        setState({...state, appointments, days});
       })
   }
 
