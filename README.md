@@ -4,9 +4,9 @@ A single page React application that allows users to book, edit and cancel inter
 
 ## Final Product
 
-!["Scheduled appointments and available timeslots for booking"]()
+!["Scheduled appointments and available timeslots for booking"](https://github.com/rkrowchuk/scheduler/blob/master/docs/01-ListInterview.jpg?raw=true)
 
-!["Form view for booking an interview"]()
+!["Form view for booking an interview"](https://github.com/rkrowchuk/scheduler/blob/master/docs/02-BookInterview.jpg?raw=true)
 
 
 ## Getting Started
