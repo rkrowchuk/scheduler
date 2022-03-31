@@ -35,20 +35,48 @@ export function useApplicationData() {
     return axios.put(`/api/appointments/${id}`, {interview})
       .then((response) => {
         setState({...state, appointments});
+        updateSpots();
       })
   }
 
   const cancelInterview = (id) => {
    return axios.delete(`/api/appointments/${id}`)
       .then((response) => {
+        updateSpots();
       })
+  }
+
+  const updateSpots = function(state, appointments, id) {
+
+    const oldInterview = state.appointments[id].interview;
+    const newInterview = appointments[id].interview;
+    let update = 0;
+  
+    if (oldInterview !== null && newInterview !== null) {
+      update = 0;
+    }
+    if (oldInterview !== null && newInterview === null) {
+      update = 1;
+    }
+    if (oldInterview === null && newInterview !== null) {
+      update = -1;
+    }
+    const dayObj = state.days.find(d1 => d1.name === state.day);
+    const newDays = state.days.map(day => {
+      if (dayObj) {
+        return {...day, spots: day.spots + update}
+      }
+      return day;
+    })
+    return newDays;
   }
 
   return {
     state, 
     setDay,
     bookInterview,
-    cancelInterview
+    cancelInterview, 
+    updateSpots
   }
 
 }
